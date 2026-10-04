@@ -712,7 +712,7 @@ export default function Home() {
                 {[[17, 68, 34, 35], [34, 35, 54, 62], [54, 62, 71, 27], [71, 27, 87, 55]].map(([x1, y1, x2, y2], line) => <line key={line} className={constellationStep > line + 1 ? 'active' : ''} x1={x1} y1={y1} x2={x2} y2={y2} pathLength="1" />)}
               </svg>
               {['Aku', 'memilih', 'kamu', 'hari ini', 'dan seterusnya'].map((word, star) => <button key={word} className={`star-node star-node-${star + 1} ${star < constellationStep ? 'connected' : ''} ${star === constellationStep ? 'next' : ''}`} type="button" onClick={() => connectStar(star)} aria-label={`Bintang ${star + 1}${star === constellationStep ? ', pilih berikutnya' : ''}`}><span aria-hidden="true">✦</span><small aria-hidden="true">{word}</small></button>)}
-              <div className="constellation-result" aria-live="polite"><strong>{constellationStep === 5 ? 'K ✦ N' : `${constellationStep}/5`}</strong><span>{constellationStep === 5 ? 'our little constellation' : 'kata ditemukan'}</span></div>
+              <div className="constellation-result" aria-live="polite"><strong>{constellationStep === 5 ? `${gift.from.trim().charAt(0).toUpperCase()} ✦ ${gift.nickname.trim().charAt(0).toUpperCase()}` : `${constellationStep}/5`}</strong><span>{constellationStep === 5 ? `${gift.from} & ${gift.nickname}` : 'kata ditemukan'}</span></div>
               <p className="constellation-secret" aria-live="polite">{constellationStep === 0 ? 'Temukan pesan rahasianya ✦' : ['Aku', 'Aku memilih', 'Aku memilih kamu', 'Aku memilih kamu hari ini', `Aku memilih kamu hari ini dan seterusnya, ${gift.nickname}.`][constellationStep - 1]}</p>
             </div>
           </section>
